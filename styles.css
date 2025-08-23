@@ -190,6 +190,7 @@ nav {
 .language__img {
   width: 100%;
   max-width: 100px;
+  background-color: lightyellow;
 }
 
 .language:hover .language__img {
@@ -303,7 +304,7 @@ nav {
   .project__description--link {
     font-size: 20px;
     margin-right: 16px;
-    text-decoration: 0;
+    text-decoration: none;
   }
 
 .project__description--title,
