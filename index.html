@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
+  <script>
+  // Save scroll position before leaving/refreshing
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("scrollY", window.scrollY);
+  });
+
+  // Restore scroll position on load
+  window.addEventListener("load", () => {
+    const scrollY = localStorage.getItem("scrollY");
+    if (scrollY !== null) {
+      window.scrollTo(0, parseInt(scrollY));
+    }
+  });
+
+  // Remove hash from URL after clicking an anchor link
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", () => {
+      setTimeout(() => {
+        history.replaceState("", document.title, window.location.pathname + window.location.search);
+      }, 300); // small delay so smooth scroll finishes first
+    });
+  });
+</script>
+
+
   <body>
     <section id="about_me">
       <nav>
